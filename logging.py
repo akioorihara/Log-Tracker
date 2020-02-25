@@ -1,25 +1,28 @@
-import time, sys
-indent = 0 # How many spaces to indent.
-indentIncreasing = True # Whether the indentation is increasing or not.
+import datetime, os, time, stat 
 
-try:
-    while True: # The main program loop.
-        print(' ' * indent, end='')
-        print('********')
-        time.sleep(0.1) # Pause for 1/10 of a second.
+now = datetime.datetime.now()
 
-        if indentIncreasing:
-            # Increase the number of spaces:
-            indent = indent + 1
-            if indent == 20:
-                # Change direction:
-                indentIncreasing = False
+f = open('log.txt', 'a') #open an exiting file 
+f.write("Current time is : " + str(now) + "\n")
 
-        else:
-            # Decrease the number of spaces:
-            indent = indent - 1
-            if indent == 0:
-                # Change direction:
-                indentIncreasing = True
-except KeyboardInterrupt:
-    sys.exit()
+
+
+#Write a mod time of the log file
+FileCreated = os.stat('log.txt')
+ModTime = time.ctime(FileCreated[stat.ST_MTIME])
+f.write(FileCreated + "Last Modified Time: " + ModTime + '\n\n')
+
+#print(f.read())
+
+
+#print a file name func 
+
+
+
+f.write('\n')
+f.close()
+
+
+
+
+#logging.error('%s raised an error', output)
