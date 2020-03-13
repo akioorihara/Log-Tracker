@@ -1,5 +1,4 @@
 import datetime, os, time, stat 
-
 now = datetime.datetime.now()
 
 #Class for print a file name  
@@ -14,7 +13,6 @@ class LogToFile:
         ModTime = time.ctime(FileCreated[stat.ST_MTIME])
         f.write("Last Modified Time : " + ModTime + '\n\n')
 
-
 f = open('log.txt', 'a') #open an exiting file 
 f.write("Current time is : " + str(now) + "\n")
 
@@ -24,9 +22,10 @@ FileName = 'log.txt'
 #DisplayFileName(FileName)
 #LogToFile
 ModTime = time.ctime(FileCreated[stat.ST_MTIME])
-f.write(str(FileCreated) + "Last Modified Time: " + str(ModTime) + '\n')
+f.write(str(FileCreated) + "Last Modified Time: " + str(ModTime) + '\n\n')
 
 #print(f.read())
 #f.write('\n')
 f.close()
 #logging.error('%s raised an error', output)
+
