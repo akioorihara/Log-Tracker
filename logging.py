@@ -37,7 +37,7 @@ for entry in os.scandir(basepath):
     if not entry.name.startswith('.') and entry.is_file(): 
         #Check if oder than 7 years  
         print(entry.name)
-        print(convert(os.path.getsize(entry.name)))
+        convert(os.path.getsize(entry.name))
         #print(os.path.getsize(entry.name))
         #I need to print a file size  
 
