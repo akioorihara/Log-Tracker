@@ -13,6 +13,11 @@ class LogToFile:
         ModTime = time.ctime(FileCreated[stat.ST_MTIME])
         f.write("Last Modified Time : " + ModTime + '\n\n')
 
+
+def convert(file_size):
+    size = file_size/1024/1024
+    print(size)    
+
 f = open('log.txt', 'a') #open an exiting file 
 
 #Write a current time 
@@ -26,19 +31,19 @@ FileName = 'log.txt'
 ModTime = time.ctime(FileCreated[stat.ST_MTIME])
 
 #f.write("Last Modified Time: " + (ModTime) + '\n' + "Path: " + os.path.realpath(__file__))
-#print("Current File Name: ", os.path.realpath(__file__))
+#print("Current File Path: ", os.path.realpath(__file__))
 basepath = "."
 for entry in os.scandir(basepath):
-    if not entry.name.startswith('.') and entry.is_file():
-        print(entry.name)
+    if not entry.name.startswith('.') and entry.is_file(): 
         #Check if oder than 7 years  
-        #I need to print a file name 
+        print(entry.name)
+        print(convert(os.path.getsize(entry.name)))
+        #print(os.path.getsize(entry.name))
         #I need to print a file size  
 
     
 
 #print(f.read())
 #f.write('\n')
-f.close()
+#f.close()
 #logging.error('%s raised an error', output)
-
