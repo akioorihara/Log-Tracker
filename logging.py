@@ -1,4 +1,4 @@
-import datetime, os, time, stat 
+import datetime, os, time, stat, glob
 now = datetime.datetime.now()
 
 #Class for print a file name  
@@ -30,6 +30,20 @@ FileName = 'log.txt'
 #LogToFile
 ModTime = time.ctime(FileCreated[stat.ST_MTIME])
 
+#glob to scan through files within the GitHub folder 
+pathDir = r"C:\Users\aorihara\Documents\GitHub"
+#os.chdir(pathDir)
+#for file in glob.glob("*.*"):
+#    print(file)
+
+for root, dirs, files in os.walk(pathDir):
+    for file in files:
+            if file.endswith(".txt"):
+                print(os.path.join(root, file))
+                
+
+
+
 #f.write("Last Modified Time: " + (ModTime) + '\n' + "Path: " + os.path.realpath(__file__))
 #print("Current File Path: ", os.path.realpath(__file__))
 basepath = "."
@@ -39,9 +53,8 @@ for entry in os.scandir(basepath):
         print(entry.name)
         convert(os.path.getsize(entry.name))
         #print(os.path.getsize(entry.name))
-        #I need to print a file size  
-
-    
+         
+   
 
 #print(f.read())
 #f.write('\n')
