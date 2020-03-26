@@ -38,8 +38,13 @@ pathDir = r"C:\Users\aorihara\Documents\GitHub"
 
 for root, dirs, files in os.walk(pathDir):
     for file in files:
-            if file.endswith(".txt"):
+            if not file.startswith(".") and file.endswith(".txt"):
+                #check if file is older than x date(s)
+
                 print(os.path.join(root, file))
+                
+                 
+                #if(file.)
                 
 
 
