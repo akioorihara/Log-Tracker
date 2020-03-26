@@ -7,14 +7,15 @@ fileCreated = os.stat('log.txt')
 
 #current time 
 currentTime = time.ctime()
-now = datetime.datetime.now()
-file_mod_time = os.stat(fileCreated).st_mtime
-diff = now - file_mod_time
+today = datetime.datetime.today()
+file_mod_time = os.stat('log.txt').st_mtime
+print(time.ctime(os.path.getmtime('log.txt')))
 
-print(now)
-print(currentTime)
-print(file_mod_time)
-print(diff)
+d = datetime.datetime.today() - datetime.timedelta(hours=8760)
+#diff = today - file_mod_time
+
+print(today)
+print(d)
 
 
 #glob to scan through files within the GitHub folder 
@@ -25,5 +26,6 @@ for root, dirs, files in os.walk(pathDir):
             if not file.startswith(".") and file.endswith(".txt"):
                 #check if file is older than x date(s)
                 #lastModTime = time.ctime(file)
+                
                 print(os.path.join(root, file))
 
