@@ -11,7 +11,14 @@ currentTime = datetime.datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y")
 
 #file_mod_time = os.stat('log.txt').st_mtime
 print(time.ctime(os.path.getmtime('log.txt')))
+print(time.ctime())
 
+t = (time.ctime(os.path.getmtime('log.txt')))
+v = (time.ctime())
+if (t > v):
+    print(t)
+else:
+    print(v)
 
 d = datetime.datetime.today() - datetime.timedelta(hours=8760) #diff a year 
 #compare the differece 
