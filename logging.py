@@ -42,7 +42,6 @@ for entry in os.scandir(basepath):
         #I need to print a file size  
 
     
-
 #print(f.read())
 #f.write('\n')
 #f.close()
