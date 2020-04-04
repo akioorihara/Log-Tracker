@@ -55,9 +55,15 @@ for entry in os.scandir(basepath):
         print(entry.name)
         convert(os.path.getsize(entry.name))
         #print(os.path.getsize(entry.name))
+<<<<<<< HEAD
+        #I need to print a file size  
+
+    
+=======
          
    
 
+>>>>>>> eb38095fd6a30a8cf98d4f80a37ca1d918da4b09
 #print(f.read())
 #f.write('\n')
 #f.close()
