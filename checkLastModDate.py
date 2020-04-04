@@ -4,28 +4,37 @@ today = datetime.datetime.today()
 
 #Write a mod time of the log file
 fileCreated = os.stat('log.txt')
-#ModTime = time.ctime(FileCreated[stat.ST_MTIME])
 
 #current time 
 currentTime = datetime.datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y")
 
 #file_mod_time = os.stat('log.txt').st_mtime
-print(time.ctime(os.path.getmtime('log.txt')))
-print(time.ctime())
+#print(time.ctime(os.path.getmtime('log.txt')))
 
-t = (time.ctime(os.path.getmtime('log.txt')))
-v = (time.ctime())
-if (t > v):
-    print(t)
+def modi_date(filename):
+    t = os.path.getmtime(filename)
+    return datetime.datetime.fromtimestamp(t)
+
+t = modi_date('log.txt')
+print(currentTime)
+print(datetime.timedelta(hours=8760))
+x = currentTime - t 
+print(x)
+
+if (t - currentTime) <= datetime.timedelta(hours= 1):
+    print("This is older than an hour")
 else:
-    print(v)
+    print("Error! ")
+
+
+#t = (time.ctime(os.path.getmtime('log.txt')))  #This is last modified date 
 
 d = datetime.datetime.today() - datetime.timedelta(hours=8760) #diff a year 
 #compare the differece 
 #diff = currentTime - file_mod_time
 
-print(currentTime)
-print(d)
+#print(currentTime)
+#print(d)
 
 
 #glob to scan through files within the GitHub folder 
