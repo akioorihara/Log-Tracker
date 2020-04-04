@@ -10,6 +10,8 @@ def check_the_diff(filename):
     if  (modi_date(filename) - currentTime <= datetime.timedelta(hours= 1)):  
         return filename
     else: 
+        print("here")
+        #does not get here 
         return None
 
 
@@ -20,7 +22,7 @@ for root, dirs, files in os.walk(pathDir):
     for file in files:
             if not file.startswith(".") and file.endswith(".txt"):
                 if check_the_diff(file) == None: #check if file is older than x date(s)
-                    print("here")
+                    #Does not run till here 
                     continue
                 else:
                     print(os.path.join(root, file))
