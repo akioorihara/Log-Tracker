@@ -10,8 +10,12 @@ def modi_date(filename):
 
 def check_the_diff(filename):
     #if  (currentTime - modi_date(filename) <= datetime.timedelta(days= 1)):
-    print(" current > modi date ", currentTime > modi_date(filename)) 
-    if  (currentTime - modi_date(filename) <= datetime.timedelta(days= 1)):
+    print(" current > modi date ", currentTime > modi_date(filename))
+    if(currentTime > modi_date(filename)):
+        tDiff = (currentTime - modi_date(filename)) 
+        if(tDiff - currentTime):
+            print("Time Diff", tDiff)
+        
         #print(type(currentTime))
         #print(type(modi_date(filename)))
         #print(type(datetime.timedelta(hours=1))) 
