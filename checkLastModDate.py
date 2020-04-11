@@ -15,11 +15,6 @@ def modi_date(filename):
     t = os.path.getmtime(filename)
     return datetime.datetime.fromtimestamp(t)
 
-t = modi_date('log.txt')
-print(currentTime)
-print(datetime.timedelta(hours=8760))
-x = currentTime - t 
-print(x)
 
 if (t - currentTime) <= datetime.timedelta(hours= 1):
     print("This is older than an hour")

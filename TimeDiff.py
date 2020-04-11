@@ -9,24 +9,15 @@ def modi_date(filename):
     return datetime.datetime.fromtimestamp(t)
 
 def check_the_diff(filename):
-    #if  (currentTime - modi_date(filename) <= datetime.timedelta(days= 1)):
-    print(" current > modi date ", currentTime > modi_date(filename))
-    if(currentTime > modi_date(filename)):
-        tDiff = (currentTime - modi_date(filename)) 
-        if(tDiff - currentTime):
-            print("Time Diff", tDiff)
-        
-        #print(type(currentTime))
-        #print(type(modi_date(filename)))
-        #print(type(datetime.timedelta(hours=1))) 
-        #print(currentTime - modi_date(filename), datetime.timedelta(hours= 1))
+    a = datetime.datetime(2020, 4, 10)
+    if(currentTime - modi_date(filename) >= currentTime-a):
+        #print("This file is older than ", currentTime - modi_date(filename))
         return True
     else:  
-        print(currentTime)
-        print(modi_date(filename))
-        print(datetime.timedelta(hours=1)) 
-        print(currentTime - modi_date(filename), datetime.timedelta(hours= 1))
+        #print(currentTime - modi_date(filename), datetime.timedelta(hours= 1))
         return False
+
+
 
 def file_size(size):
     _suffixes = ['bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
@@ -42,5 +33,5 @@ for root, dirs, files in os.walk(pathDir):
             if check_the_diff(x): #check if file is older than x date(s)
                 print(x,file_size(os.stat(x).st_size))    
             else:
-                print(x)
-                
+                #print(x)
+                continue
