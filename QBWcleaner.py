@@ -24,10 +24,10 @@ def file_size(size):
     return '{:.4g} {}'.format(size / (1 << (order * 10)), _suffixes[order])
 
 #glob to scan through files within the GitHub folder 
-pathDir = r"C:\Users\aorihara\Documents\GitHub"
+pathDir = r"\\cdhfs3\Extended Storage"
 for root, dirs, files in os.walk(pathDir):
     for file in files:
-        if not file.startswith(".") and file.endswith(".txt"):
+        if not file.startswith(".") and file.endswith(".txt") or file.endswith(".qbw") or file.endswith(".qbb"):
             x = os.path.join(root, file)
             if check_the_diff(x): #check if file is older than x date(s)
                 print(x,file_size(os.stat(x).st_size))    
