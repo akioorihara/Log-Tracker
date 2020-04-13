@@ -1,4 +1,4 @@
-import datetime, os, time, stat, glob
+import datetime, os, time, stat, glob, 
 from math import log2
 
 #currentTime = datetime.datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y") # current time 
@@ -16,6 +16,12 @@ def check_the_diff(filename):
     else:  
         #print(currentTime - modi_date(filename), datetime.timedelta(hours= 1))
         return False
+
+def take_user_input():
+    year = input("Please enter the year : YYYY  ")
+    month = input("Please enter the month : MM ")
+    day = input("Please enter the day : DD ")
+    return year, month, day
 
 
 def file_size(size):
