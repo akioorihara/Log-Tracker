@@ -51,4 +51,4 @@ for root, dirs, files in os.walk(pathDir):
                 continue
 
 
-f.close()
+f.close()  #closing a file 
