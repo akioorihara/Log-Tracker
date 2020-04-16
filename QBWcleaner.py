@@ -1,4 +1,4 @@
-import datetime, os, time, stat, glob, 
+import datetime, os, time, stat, glob
 from math import log2
 
 #currentTime = datetime.datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y") # current time 
@@ -29,6 +29,10 @@ def file_size(size):
     order = int(log2(size) / 10) if size else 0
     return '{:.4g} {}'.format(size / (1 << (order * 10)), _suffixes[order])
 
+
+f = open('QBCleaner.txt', 'a') #open an exiting file 
+
+
 #glob to scan through files within the GitHub folder 
 pathDir = r"\\cdhfs3\Extended Storage"
 for root, dirs, files in os.walk(pathDir):
@@ -37,6 +41,14 @@ for root, dirs, files in os.walk(pathDir):
             x = os.path.join(root, file)
             if check_the_diff(x): #check if file is older than x date(s)
                 print(x,file_size(os.stat(x).st_size))    
+                
+                f.write(x)  #Write it into a file 
+                f.write("  |    ")
+                f.write(file_size(os.stat(x).st_size))
+                f.write('\n')
             else:
                 #print(x)
                 continue
+
+
+f.close()
