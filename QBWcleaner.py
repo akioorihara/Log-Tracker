@@ -18,7 +18,11 @@ def check_the_diff(filename):
         return False
 
 def take_user_input():
-    year = input("Please enter the year : YYYY  ")
+    
+    while(True):
+        year = input("Please enter the year : YYYY  ")
+        if(len(year)>5 and len(year)<3)
+        
     #Needs some adjustment here to validate 
     month = input("Please enter the month : MM ")
     day = input("Please enter the day : DD ")
