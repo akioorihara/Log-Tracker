@@ -1,7 +1,6 @@
 import datetime, os, time, stat, glob
 from math import log2
 
-#currentTime = datetime.datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y") # current time 
 currentTime = datetime.datetime.now()
 
 def modi_date(filename):
